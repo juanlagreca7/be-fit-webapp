@@ -1,3 +1,4 @@
+import MenuLateral from "../components/MenuLateral";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -29,33 +30,36 @@ function Administradores() {
   };
 
   return (
-    <div>
-      {/* Titulo */}
+    <div className="flex">
+      <MenuLateral />
       <div>
-        <h2>Agregar Administrador</h2>
+        {/* Titulo */}
+        <div className="flex-grow p-10">
+        <h2 className="text-5xl font-zendots">Administradores</h2>
       </div>
-      {/* Formulario */}
-      <div>
-        {error && <p>{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Correo electrónico:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="ejemplo@ejemplo.com"
-            onChange={handleChange}
-          />
-          <label htmlFor="contrasena">Contraseña:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-          />
-          {/* Boton */}
-          <button>Agregar</button>
-        </form>
+        {/* Formulario */}
+        <div>
+          {error && <p>{error}</p>}
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Correo electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ejemplo@ejemplo.com"
+              onChange={handleChange}
+            />
+            <label htmlFor="contrasena">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={handleChange}
+            />
+            {/* Boton */}
+            <button>Agregar</button>
+          </form>
+        </div>
       </div>
     </div>
   );

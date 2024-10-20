@@ -9,7 +9,7 @@ function Login() {
     password: "",
   });
   const [error, setError] = useState();
-  
+
   const { ingresar, resetearContrasena } = useAuth();
 
   const navigate = useNavigate();
@@ -46,7 +46,10 @@ function Login() {
   };
 
   const handleResetPassword = async () => {
-    if (!usuario.email) return setError("Por favor, ingresa tu correo para restablecer tu contraseña.");
+    if (!usuario.email)
+      return setError(
+        "Por favor, ingresa tu correo para restablecer tu contraseña."
+      );
     try {
       await resetearContrasena(usuario.email);
       setError("Te hemos enviado un correo para restablecer tu contraseña.");

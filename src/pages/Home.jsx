@@ -1,3 +1,4 @@
+import MenuLateral from "../components/MenuLateral";
 import { useAuth } from "../context/AuthContext";
 
 function Home() {
@@ -16,9 +17,10 @@ function Home() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>BIENVENIDO {usuario.email}!</h1>
+    <div className="flex">
+      <MenuLateral />
+      <div className="flex-grow p-10">
+        <h2 className="text-5xl font-zendots">Bienvenido {usuario.email}!</h2>
       </div>
       <div>
         <button onClick={handleLogout}>LOGOUT</button>
