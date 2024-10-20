@@ -1,3 +1,4 @@
+import { RutasProtegidas } from "./components/RutasProtegidas";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Administradores from "./pages/Administradores";
@@ -9,9 +10,17 @@ function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <RutasProtegidas>
+              <Home />
+              <Administradores />
+            </RutasProtegidas>
+          }
+        />
         <Route path="login" element={<Login />} />
-        <Route path="administradores" element={<Administradores />} />
+        {/* <Route path="administradores" element={<Administradores />} /> */}
       </Routes>
     </AuthProvider>
   );

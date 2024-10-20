@@ -1,14 +1,30 @@
 import { useAuth } from "../context/AuthContext";
-const Home = () => {
- const {user} = useAuth();
 
- console.log(user);
+function Home() {
+  const { usuario, cerrarSesion, cargando } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await cerrarSesion();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (cargando) {
+    return <h3>Cargando...</h3>;
+  }
 
   return (
     <div>
-      <h1>BIENVENIDO!</h1>
+      <div>
+        <h1>BIENVENIDO {usuario.email}!</h1>
+      </div>
+      <div>
+        <button onClick={handleLogout}>LOGOUT</button>
+      </div>
     </div>
   );
-};
+}
 
 export default Home;
